@@ -32,8 +32,10 @@ int main()// client code
     Car bmw{ "BMW", "Silver", 2022 }; // object of struct Car
     print(bmw);
 
-    Car* p = new Car {"Toyota", "Black", 2021};
+    //Car* p = new Car {"Toyota", "Black", 2021};
+    auto p = new Car {"Toyota", "Black", 2021};
     cout << p->brand << endl;
-    
+    delete p;
+    p = nullptr;
 }
 
