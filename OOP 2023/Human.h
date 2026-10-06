@@ -1,0 +1,9 @@
+#pragma once
+#include <string>
+class Human
+{
+public:
+	std::string name;
+	void print() const;
+};
+
