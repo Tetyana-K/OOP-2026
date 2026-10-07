@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="04_Point ctor dtor.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Point3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Point3D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

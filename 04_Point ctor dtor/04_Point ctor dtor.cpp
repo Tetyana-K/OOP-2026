@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 #include "Point.h"
+#include "Point3D.h"
 // Конструктор -  метод викликається 1 раз при створенні об'єкта, служить для ініціалізації полів класу
 // Якщо клас(чи структура) не містить жодного к-ра, то компілятор НАДАЄ к-р по замовчуванню
 // Якщо у класі є  хоч один к-р з  параметрами, то ми к-р по замовчуванню  пишемо САМІ 
@@ -16,7 +17,7 @@ using namespace std;
 // Клас може містити тільки ОДИН деструктор
 // Деструктор не повертає  результат, не має параметрів
 
-Point global(1, -1);// ctor with  2 params
+/*const*/ Point global(1, -1);// ctor with  2 params
 
 void demo()
 {
@@ -28,10 +29,11 @@ int main()
 {
     cout << "Demo  ctors\n";
     
-  // demo();
+   demo();
 
     global.print();
-    
+   
+    return 0;
     Point a; // тут працює к-р по замовчуванню, default constructor (ctor), void ctor, ctor without  parameters (parameterless)
     a.setX(3.4);
     a.print();// 3.4 0
@@ -65,6 +67,12 @@ int main()
         p.print();
     }
     cout << endl;
+    cout << "____Point 3D______\n";
+
+    Point3D p3;
+    p3.print();
+    Point3D p4(1, -2, 111);
+    p4.print();
   
 }
 

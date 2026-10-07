@@ -13,12 +13,12 @@ struct Car
 	string brand;// поле, дане-елемент
 	string  color;
 	int year = 2000;
-
-	void print() const// функція-елемент структури, метод не буде змінювати поля структури-класу 
+//public:
+	void print() const// функція-елемент структури, const = метод не буде змінювати поля структури-класу 
 		// у функцію неявно приходить вказівник this = вказівник на обєкт, для якого викликається метод
 	{
 		cout << brand << "\t" << this->color << "\t" << year << endl;
-		
+		//cout << "This = " << this << endl;
 	}
 	void input()//  функція-елемент структури, метод
 	{
@@ -29,9 +29,8 @@ struct Car
 		cin >> this->color; // this = вказівник на поточний обєкт (на обєкт для  якого викликано метод)
 		
 		cout << "\t\tEnter car year : ";
-		cin >> year; // this = вказівник на поточний обєкт (на обєкт для  якого викликано метод)
+		cin >> this->year; // this = вказівник на поточний обєкт (на обєкт для  якого викликано метод)
 	}
-
 };
 //void print()
 //{
@@ -40,17 +39,21 @@ struct Car
 
 int main()
 {
+	//print();
 	cout << "PROCEDURAL STYLE\n";
 	Car audi{ "Audi", "White", 2020 }; // object of struct Car
-	//print();
+	//print(); // error - бо тепер print() НЕ глобальна, а належить структурі
+	cout << "Address of audi = " << &audi << endl;
 	audi.print(); // вказівник this = address of audi 
 
 	Car bmw{ "BMW", "Silver", 2022 }; // object of struct Car
+	cout << "Address of bmw = " << &bmw << endl;
 	bmw.print(); // this = address of bmw 
 
 	Car car;
 	car.input();
 	car.print();
+	
 
 }
 
