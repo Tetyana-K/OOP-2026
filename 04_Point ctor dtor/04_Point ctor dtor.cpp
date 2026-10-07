@@ -17,63 +17,63 @@ using namespace std;
 // Клас може містити тільки ОДИН деструктор
 // Деструктор не повертає  результат, не має параметрів
 
-/*const*/ Point global(1, -1);// ctor with  2 params
+const Point global(1, -1);// ctor with  2 params, зробили const, бо рекомендують глобальні об'єкти без зміни стану робити const
 
 void demo()
 {
-    Point local(3.3, -4.4); //ctor with 2 params
-    local.print();
-    // dtor
+	Point local(3.3, -4.4); //ctor with 2 params
+	local.print();
+	// dtor
 }
 int main()
 {
-    cout << "Demo  ctors\n";
-    
-   demo();
+	cout << "Demo  ctors\n";
 
-    global.print();
-   
-    return 0;
-    Point a; // тут працює к-р по замовчуванню, default constructor (ctor), void ctor, ctor without  parameters (parameterless)
-    a.setX(3.4);
-    a.print();// 3.4 0
-    cout << endl;
-    
-    {
-        Point b(10.8, 1.2); // тут працює к-р з  2 параметрами
-        b.print();
-        // b -  локальний об'єкт, закривається блок, тобто буде знищення b ---> спрацює деструктор 
-    }
-    cout << endl;
-    Point c(7.7); // к-р з  1 параметром
-    c.print();
+	demo();
 
-   // Point d(10, 2, 3); // тут помилка компіляції, бо клас не містить к-ра з  3-ма параметрами
-    Point* f = new Point(88, 100);// ctor with 2 parameters
-    f->print();
-    delete f; // вилучаємо дин об'єкт, тобто спрацює деструктор
-    
-    cout << "\nArray of default points\n";
-    Point arr[3];// створюється масив 3-х обєктів точок, для кожної  з точоко викликати дефолтний к-р
-    for (auto& p : arr)// range for
-    {
-        p.print();
-    }
-    cout << endl;
+	global.print();
 
-    Point arr2[2]{ Point(4,4), Point(-5, -5) };
-    for (auto& p : arr2)
-    {
-        p.print();
-    }
-    cout << endl;
-    cout << "____Point 3D______\n";
+	return 0;
+	Point a; // тут працює к-р по замовчуванню, default constructor (ctor), void ctor, ctor without  parameters (parameterless)
+	a.setX(3.4);
+	a.print();// 3.4 0
+	cout << endl;
 
-    Point3D p3;
-    p3.print();
-    Point3D p4(1, -2, 111);
-    p4.print();
-  
+	{
+		Point b(10.8, 1.2); // тут працює к-р з  2 параметрами
+		b.print();
+		// b -  локальний об'єкт, закривається блок, тобто буде знищення b ---> спрацює деструктор 
+	}
+	cout << endl;
+	Point c(7.7); // к-р з  1 параметром
+	c.print();
+
+	// Point d(10, 2, 3); // тут помилка компіляції, бо клас не містить к-ра з  3-ма параметрами
+	Point* f = new Point(88, 100);// ctor with 2 parameters
+	f->print();
+	delete f; // вилучаємо дин об'єкт, тобто спрацює деструктор
+
+	cout << "\nArray of default points\n";
+	Point arr[3];// створюється масив 3-х обєктів точок, для кожної  з точоко викликати дефолтний к-р
+	for (auto p : arr)// range for
+	{
+		p.print();
+	}
+	cout << endl;
+
+	Point arr2[2]{ Point(4,4), Point(-5, -5) };
+	for (auto p : arr2)
+	{
+		p.print();
+	}
+	cout << endl;
+	cout << "____Point 3D______\n";
+
+	Point3D p3;
+	p3.print();
+	Point3D p4(1, -2, 111);
+	p4.print();
+
 }
 
 

@@ -21,7 +21,7 @@ void Point::setY(const double& y)
 
 // при реалізації к-ра можна скористатися СПИСКОМ ІНІЦІАЛІЗАЦІЇ ПОЛІВ
 Point::Point(const double& x, const double& y)
-	: x(x), y(y)
+	: x(x), y(y) // : назваПоля(значення яке ініціалізуємо у поле), назваПоля2(значення2 чи вираз2)
 {
 	cout << ">>>>>>>Ctor with 2 param x = " << x << " y = " << y << endl;
 

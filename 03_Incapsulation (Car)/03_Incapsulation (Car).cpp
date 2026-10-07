@@ -10,11 +10,11 @@ class Car // in classes by default  all members PRIVATE, in structures -  PUBLIC
 {
 
 public:
-	void print() const// метод не буде змінювати поля структури-класу 
-	{
-		cout << brand << "\t" << this->color << "\t" << year << endl;
-	}
-	//void print()const; // декларація методу
+	//void print() const// метод не буде змінювати поля структури-класу 
+	//{
+	//	cout << brand << "\t" << this->color << "\t" << year << endl;
+	//}
+	void print()const; // декларація (прототип) методу, тоді треба реалізувати за межами класу
 	void input()
 	{
 		cout << "\t\tEnter car brand : ";
@@ -34,14 +34,14 @@ public:
 			brand = newBrand; //тоді змінюємо поле бренду
 		return *this;// this- pointer    - повертаємо посилання на поточну машинку, бренд якої зараз змінювали
 	}
-	
+
 	const string& getBrand() const // getter (accessor) = метод, який повертає  значення певного поля
 	{
 		return brand;
 	}
 	Car& setYear(int year) // setter for year
 	{
-		if(year >= 1900 && year <=2023)
+		if (year >= 1900 && year <= 2023)
 			this->year = year; // поле = формальний параметр
 		return *this;// повертаємо за посиланням ЦЕЙ об'єкт, надалі можна продовжити зміну стану об'єкту 
 	}
@@ -52,6 +52,7 @@ public:
 	//		this->year = year; // поле = формальний параметр
 	//	}
 	//}
+
 private: //захист даних  від неконтрольованого використання зовн. світом
 	string brand = "Nobrand";
 	string color = "Nocolor";
@@ -73,37 +74,40 @@ public:
 		//color = "White";
 	}
 	//Car() = default; // те саме, як пустий дефолтний к-р
-	~Car()
+
+	~Car() // деструктор, спрацює при вилученні об'єкта автоматично
 	{
-		cout << "Dtor  for " << brand <<  " year " << year << endl;
+		cout << "~~~~~~~~~~~~~~ Dtor  for car '" << brand << "'\t(" << year << ") year" << endl;
 	}
 };
 
 
-//void Сar::print() const// метод не буде змінювати поля структури-класу 
-//{
-//	cout << brand << "\t" << this->color << "\t" << year << endl;
-//}
+void Car::print() const//const -  метод не буде змінювати поля структури-класу 
+{
+	cout << brand << "\t" << this->color << "\t" << year << endl;
+}
 
 int main()
 {
-	
+
 	cout << "OOP STYLE\n";
-	
-		Car audi; // object of class Car
-		//cout << audi.color << endl; // error -because private
-		audi.print();
-		cout << "Year : " << audi.getYear() << endl;
 
-		//audi.setYear(2026);
-		//audi.brand = "Audi";
-		audi.setBrand("Audi").setYear(2026).setYear(2017); // 2017
-		//audi.setBrand("Audi");
-		//audi.setYear(2020);
-		//audi.setYear(200);
+	Car audi; // object of class Car
+	//cout << audi.color << endl; // error -because private
+	audi.print();
+	cout << "Year : " << audi.getYear() << endl;
 
-		audi.print(); // this = address of audi 
-	
+	//audi.setYear(2026);
+	//audi.brand = "Audi";
+
+	// виклик сетерів послідовним ланцюжком, можливо, якщо сетери повертають посилання на поточне авто (Car&)
+	audi.setBrand("Audi").setYear(2026).setYear(2024); // 2024
+	//audi.setBrand("Audi");
+	//audi.setYear(2020);
+	//audi.setYear(200);
+
+	audi.print(); // this = address of audi 
+
 	Car bmw; // object of struct Car
 	bmw.setBrand("BMW");
 	bmw.setYear(2025);
@@ -112,7 +116,7 @@ int main()
 	Car bmw2; // object of struct Car
 	bmw2.setBrand("BMW");
 	bmw2.setYear(2019);
-	
+
 	bmw2.print(); // this = address of bmw 
 
 	// масив із вказівників на об'єкти машин
@@ -129,7 +133,7 @@ int main()
 	}
 	cout << "\nWe found " << count << " cars of brand 'BMW'\n";
 
-	Car * toyota = new Car ("Toyota", 2022, "blue");
+	Car* toyota = new Car("Toyota", 2022, "blue");
 	toyota->print();
 	delete toyota;
 

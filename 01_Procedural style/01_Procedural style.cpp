@@ -42,7 +42,7 @@ int main()// client code
 	delete p; // звільняється дин память
 	p = nullptr;
 
-	auto value = 3489;
-	cout << "type of value " << value << " = " << typeid(value).name() << endl;
+	auto value = 3489;// компілятор оголосить змінну value типу int (3489 має тип int)
+	cout << "\n\ntype of value " << value << " = " << typeid(value).name() << endl;
 }
 

@@ -39,10 +39,12 @@ struct Car
 
 int main()
 {
-	//print();
+	//print(); // виклик глобальної функції print()
+	
 	cout << "PROCEDURAL STYLE\n";
-	Car audi{ "Audi", "White", 2020 }; // object of struct Car
-	//print(); // error - бо тепер print() НЕ глобальна, а належить структурі
+	
+	Car audi{ "Audi", "White", 2020 }; // object of struct Car, створюється об'єкт( екземпляр) структури Car
+	
 	cout << "Address of audi = " << &audi << endl;
 	audi.print(); // вказівник this = address of audi 
 
