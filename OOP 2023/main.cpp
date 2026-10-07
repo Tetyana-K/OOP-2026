@@ -5,6 +5,9 @@
 #include "Human.h"
 int main()
 {
-    std::cout << "Hello World!\n";
+    Human human;
+    human.name = "Maria";
+
+    human.print();
 }
 
