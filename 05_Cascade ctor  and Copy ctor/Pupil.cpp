@@ -10,13 +10,15 @@ Pupil::Pupil(const string& name, const int& grade)
 }
 // визначимо к-р як делегуючий (каскадний), тобто що цей к-р для своєї роботи ВИКЛИЧЕ ІНШИЙ КОНСТРУКТОР нашого класу
 Pupil::Pupil()
-	: Pupil("Noname", 1)
+	: Pupil("Noname", 1) // у списку ініціалізації викликаємо к-р з 2-ма параметрами
 {
-	//Pupil("Noname", 1); -  так не спрацює виклик іншого к-ра
+	//Pupil("Noname", 1); //-  так не спрацює виклик іншого к-ра
 	cout << "Ctor defult\n";
+	/*name = "Noname";
+	grade = 1;*/
 	/*for (size_t i = 0; i < NUM_MARKS; i++)
 	{
-		marks[i] = -1;
+		marks[i] = 10;
 	}*/
 }
 
@@ -25,19 +27,18 @@ void Pupil::print() const
 	cout << "Pupil name : " << name << endl;
 	cout << "Pupil grade : " << grade << endl;
 	printMarks();
-
 }
 // хочемо написати к-р копії  власноруч
 Pupil::Pupil(const Pupil& other) 
-	: Pupil(other.name, other.grade)
+	: Pupil(other.name, other.grade) // каскадно викликаємо к-р з 2 параметрами
 {
-	/*name = other.name;
+	/*this->name = other.name;
 	grade = other.grade;*/
 	for (int i = 0; i < NUM_MARKS; i++)
 	{
 		marks[i] = other.marks[i];
 	}
-	cout << "***** Copy  ctor done\n";
+	cout << "***** Copy  ctor done (cloning from " << other.name << ")\n";
 }
 
 void Pupil::printMarks() const

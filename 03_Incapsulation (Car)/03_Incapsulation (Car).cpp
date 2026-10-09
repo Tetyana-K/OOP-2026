@@ -69,9 +69,10 @@ public:
 		if (!color.empty())
 			this->color = color;
 	}
+
 	Car() // конструктор без параметрів, по замовчуванню, default, void- конструктор
 	{
-		//color = "White";
+		color = "White";
 	}
 	//Car() = default; // те саме, як пустий дефолтний к-р
 
