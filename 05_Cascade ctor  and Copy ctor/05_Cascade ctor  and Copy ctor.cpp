@@ -28,7 +28,7 @@ Pupil createPupil()
     cout << "++++++ In fun " << &pupil << endl;// перевірка адреси створеного обєкта
     return pupil;// COPY CTOR мав би спрацювати,  але компілятор оптимізував код, і передав створений обєкт у точку виклику
 }
-void demo(Pupil pupil) // COPY CTOR
+void demo(Pupil pupil) // передаємо без посилання, тому береться копія з оригіналу, тобто працює конструктор копії
 {
     cout << "In func demo\n";
     pupil.print();
@@ -39,7 +39,7 @@ int main()
 {
     std::cout << "_________Cascade ctors_______\n";
 
-    Pupil pupil; // працює конструктор по замовчуванню name = NOname  grade = 1 0  marks = [ 0 0 0 0 0]
+    Pupil pupil; // працює конструктор по замовчуванню name = Noname  grade = 1  marks = [ 0 0 0 0 0]
     pupil.print();
     pupil.setMark(0, 8);
     cout << endl;
@@ -55,7 +55,7 @@ int main()
 
 
     std::cout << "\n_________Copy ctor_______\n";
-    Pupil ann("Ann", 7); // створили обєкт ann, name = "Ann", grade =7
+    Pupil ann( "Ann", 7 ); // створили обєкт ann, name = "Ann", grade =7
     ann.setMark(0, 10);
     ann.setMark(2, 12); // marks = [10, 0, 12, 0 , 0]
     ann.print();

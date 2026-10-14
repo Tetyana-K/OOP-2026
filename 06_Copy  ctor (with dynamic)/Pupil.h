@@ -1,4 +1,7 @@
 ﻿#pragma once
+#ifndef __PUPIL__
+#define __PUPIL__
+
 #include <string>
 using namespace std;
 class Pupil
@@ -33,6 +36,6 @@ bool Pupil::isValidMark(int mark)const
 {
 	return mark >= 0 && mark <= MAX_MARK;
 }
-
+#endif
 
 

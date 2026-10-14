@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OOP 2023", "OOP 2023\OOP 2023.vcxproj", "{833F43D4-4730-4D6F-9EE9-661273B96BC5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Multi file proj", "OOP 2023\OOP 2023.vcxproj", "{833F43D4-4730-4D6F-9EE9-661273B96BC5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_Procedural style", "01_Procedural style\01_Procedural style.vcxproj", "{839C5CA7-FA84-4147-AF60-1C7BDDFF2F67}"
 EndProject
@@ -92,6 +92,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Final work Ex", "Final work Ex\Final work Ex.vcxproj", "{626D357D-9888-4C72-A309-DE19E11D89E6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "27_STL_map", "27_STL_map\27_STL_map.vcxproj", "{B0F596E6-B77B-4ECD-9CFA-A2F6E1B940EB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Product (static)", "Product (static)\Product (static).vcxproj", "{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -535,6 +537,18 @@ Global
 		{B0F596E6-B77B-4ECD-9CFA-A2F6E1B940EB}.Release|x64.Build.0 = Release|x64
 		{B0F596E6-B77B-4ECD-9CFA-A2F6E1B940EB}.Release|x86.ActiveCfg = Release|Win32
 		{B0F596E6-B77B-4ECD-9CFA-A2F6E1B940EB}.Release|x86.Build.0 = Release|Win32
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Debug|Any CPU.Build.0 = Debug|x64
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Debug|x64.ActiveCfg = Debug|x64
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Debug|x64.Build.0 = Debug|x64
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Debug|x86.ActiveCfg = Debug|Win32
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Debug|x86.Build.0 = Debug|Win32
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Release|Any CPU.ActiveCfg = Release|x64
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Release|Any CPU.Build.0 = Release|x64
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Release|x64.ActiveCfg = Release|x64
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Release|x64.Build.0 = Release|x64
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Release|x86.ActiveCfg = Release|Win32
+		{6AEA4041-0C52-4723-A9C9-5C8446BEB9D9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

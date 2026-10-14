@@ -13,7 +13,7 @@ public:
 	
 	Pupil(const string& name, const int& grade); // конструктор з 2-ма параметрами
 	//Pupil()  = default; // означає прохання компілятору надати к-р по  замовчуванню, який нічого* робить 
-	Pupil(); // контсруктор без параметрів
+	Pupil(); // конструктор без параметрів
 	
 	Pupil(const Pupil& other); // copy  ctor = для копіювання іншого обєкта у наш
 	
@@ -28,6 +28,8 @@ private:
 
 	bool isValidIndex(int index)const;
 	bool isValidMark(int mark)const;
+	
+	
 };
 
 inline bool Pupil :: isValidIndex(int index)const

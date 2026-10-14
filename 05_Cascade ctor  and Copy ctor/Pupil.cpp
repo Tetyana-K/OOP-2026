@@ -30,11 +30,11 @@ void Pupil::print() const
 }
 // хочемо написати к-р копії  власноруч
 Pupil::Pupil(const Pupil& other) 
-	: Pupil(other.name, other.grade) // каскадно викликаємо к-р з 2 параметрами
+	//: Pupil(other.name, other.grade) // каскадно викликаємо к-р з 2 параметрами
 {
-	/*this->name = other.name;
-	grade = other.grade;*/
-	for (int i = 0; i < NUM_MARKS; i++)
+	this->name = other.name; // заповнюємо імя поточного обєкта іменем іншого об'єкта (об'єкта other)
+	grade = other.grade; // заповнюємо рік навчання поточного обєкта роком навчання іншого об'єкта (об'єкта other)
+	for (int i = 0; i < NUM_MARKS; i++) // копіюємо у поточний об'єкт (this) оцінки із іншого об'єкта
 	{
 		marks[i] = other.marks[i];
 	}

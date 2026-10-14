@@ -43,14 +43,15 @@ int main()
 	
 	cout << "PROCEDURAL STYLE\n";
 	
-	Car audi{ "Audi", "White", 2020 }; // object of struct Car, створюється об'єкт( екземпляр) структури Car
-	
-	cout << "Address of audi = " << &audi << endl;
-	audi.print(); // вказівник this = address of audi 
+	//Car audi{ "Audi", "White", 2020 }; // object of struct Car, створюється об'єкт( екземпляр) структури Car
 
-	Car bmw{ "BMW", "Silver", 2022 }; // object of struct Car
-	cout << "Address of bmw = " << &bmw << endl;
-	bmw.print(); // this = address of bmw 
+	//cout << audi.brand << endl;
+	//cout << "Address of audi = " << &audi << endl;
+	//audi.print(); // вказівник this = address of audi 
+
+	//Car bmw{ "BMW", "Silver", 2022 }; // object of struct Car
+	//cout << "Address of bmw = " << &bmw << endl;
+	//bmw.print(); // this = address of bmw 
 
 	Car car;
 	car.input();

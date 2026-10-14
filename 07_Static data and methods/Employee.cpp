@@ -3,16 +3,19 @@
 #include "Employee.h"
 
 int Employee::counter  = 0; //  статичні змінні(поля) класу у С++ доведеться визначати за межами класу
-string Employee::company = "Noname";
+string Employee::company = "ABC Company";
+
 Employee::Employee(const string& name, const int& salary)
-	: Employee(name)
+	: Employee(name) // каскадно викликаємо к-р з 1 параметром
 {
 	this->salary = salary;
 }
 
 Employee::Employee(const string& name)
-	:name(name), id(++counter)
+	: name(name), id(++counter) // якщо id const - то ініціалізуємо її у списку ініціалізації
 {
+	//this->name = name;
+	
 	//id = ++counter; 
 	
 	// ++counter - лічимо + 1 працівника
@@ -35,7 +38,7 @@ void Employee::simplePrint(const Employee& emp)
 
 int Employee::getCount() // працює із  статичним полем
 {
-	//this->  статична функція НЕ отримує this
+	//this->  статична функція НЕ отримує 
 	return counter;
 }
 
@@ -53,6 +56,6 @@ void Employee::setCompany(const string& company)
 }
 
 Employee::Employee()
-	:Employee("Noname")
+	: Employee("Noname")
 {
 }

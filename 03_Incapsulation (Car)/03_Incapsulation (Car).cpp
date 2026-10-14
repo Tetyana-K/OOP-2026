@@ -53,7 +53,7 @@ public:
 	//	}
 	//}
 
-private: //захист даних  від неконтрольованого використання зовн. світом
+public: //захист даних  від неконтрольованого використання зовн. світом
 	string brand = "Nobrand";
 	string color = "Nocolor";
 	int year = 2000;
@@ -62,18 +62,18 @@ public:
 	{
 		return year;
 	}
-	Car(const string& brand, int year, const string& color) // - це контструктор з трьома парамтрами- викликається автоматично при створенні обєкта
-	{
-		setBrand(brand);
-		setYear(year);
-		if (!color.empty())
-			this->color = color;
-	}
+	//Car(const string& brand, int year, const string& color) // - це контструктор з трьома парамтрами- викликається автоматично при створенні обєкта
+	//{
+	//	setBrand(brand);
+	//	setYear(year);
+	//	if (!color.empty())
+	//		this->color = color;
+	//}
 
-	Car() // конструктор без параметрів, по замовчуванню, default, void- конструктор
-	{
-		color = "White";
-	}
+	//Car() // конструктор без параметрів, по замовчуванню, default, void- конструктор
+	//{
+	//	color = "White";
+	//}
 	//Car() = default; // те саме, як пустий дефолтний к-р
 
 	~Car() // деструктор, спрацює при вилученні об'єкта автоматично
@@ -93,7 +93,7 @@ int main()
 
 	cout << "OOP STYLE\n";
 
-	Car audi; // object of class Car
+	Car audi{"Audi",   "white", 2023 }; // object of class Car
 	//cout << audi.color << endl; // error -because private
 	audi.print();
 	cout << "Year : " << audi.getYear() << endl;

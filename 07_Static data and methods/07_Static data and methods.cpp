@@ -4,25 +4,40 @@
 #include <iostream>
 using namespace std;
 #include "Employee.h"
+
 void demo(Employee e)
 {
-    cout << "\t\tIn func demo()\n";
+    cout << "\n\t\tIn func demo()\n";
     e.print();
     cout << "\t\tEnd of  func demo()\n";
 }
 int main()
 {
-    Employee ann("Ann", 14789);
+
+    cout << "\t\tCounter of employees  = " << Employee::getCount() << endl;
+    Employee ann("Ann", 24789);
     demo(ann);
 
-    string name = "Petro";
+    Employee::setCompany("SoftServe"); // змінили назву компанії, статичний метод викликаємо через ім'я класу
+    //ann.setCompany("HoneyComb"); // так працює, але не гарно, бо здається, що метод стосується об'єкта, а він стосується класу
+    
+    Employee ivan("Ivan", 33389);
+    demo(ivan);
+
+    ann.print();
+    
+    cout << "\t\tCounter of employees  = " << Employee::getCount() << endl;
+
+
+    string name = "Hello world!";
     demo(name); // компілятор (якщо к-р без explicit) намагається допомогти, і шукає конструктор з  1 параметром типу string
+    demo(Employee(name)); // в любому випадку коректно, ми явно вказухмо створити праціника з певним іменем перед викликом функції
     
     demo({ "Olena", 10000 });// компілятор (якщо к-р без explicit) намагається допомогти, і шукає конструктор з  2-ма параметрами типу string, int
 
     cout << "\tArray of employees\n";
 
-    Employee emps[2] = { {  "Ivan", 12000}, {"Dmytro", 15000} };
+    Employee emps[2] = { {  "Ivan", 12000}, {"Dmytro", 25000} };
     for (auto& e : emps)
     {
         e.print();
