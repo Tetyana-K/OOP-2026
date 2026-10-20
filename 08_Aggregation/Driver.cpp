@@ -18,11 +18,16 @@ void Driver::print() const
 	}
 	else
 	{
-		cout << "Not car\n";
+		cout << "Driver does not car\n";
 	}
 }
 
 void Driver::setCar(Car* car)// метод для зміни авто, яким керує  Водій
 {
 	this->car = car; // 
+}
+
+Driver::~Driver()
+{
+	cout << "~~~~~Destructor for driver " << name << " done\n";
 }

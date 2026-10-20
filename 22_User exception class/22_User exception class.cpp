@@ -5,7 +5,7 @@
 #include "Person.h"
 void demo_1()
 {
-	Person person;// Noname 0
+	Human person;// Noname 0
 	try
 	{
 		person.setName("Ann");
@@ -60,7 +60,7 @@ void demoRethrow()
 	try
 	{
 
-		Person person("A123", 22);
+		Human person("A123", 22);
 		person.print();
 	}
 	catch (BadNameException& ex)

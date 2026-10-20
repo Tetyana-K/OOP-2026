@@ -2,21 +2,21 @@
 #include <iostream>
 #include "PersonException.h"
 #include <algorithm>
-class Person
+class Human
 {
 public:
 	void setName(const string& name);
 	void setAge(int  age);
 	void  print()const;
-	Person(const string& name = "Noname", const int& age = 0);
-	~Person();
+	Human(const string& name = "Noname", const int& age = 0);
+	~Human();
 private:
 	const static int MAX_AGE = 119;
 	string name;
 	int age;
 };
 
-inline void Person::setName(const string& name)
+inline void Human::setName(const string& name)
 {
 	if (name.empty())
 		throw BadNameException(name, "Empty name!"); // кидається обєкт винятку типу BadNameException (errValue:name, errMessage : "Empty name!")
@@ -29,7 +29,7 @@ inline void Person::setName(const string& name)
 	this->name = name;
 }
 
-inline void Person::setAge(int age)
+inline void Human::setAge(int age)
 {
 	if (age < 0)
 		throw BadAgeException(age, "Negative age impossible!");
@@ -38,13 +38,13 @@ inline void Person::setAge(int age)
 	this->age = age;
 }
 
-inline void  Person::print()const
+inline void  Human::print()const
 {
 	cout << "Name : " << name << endl;
 	cout << "Age : " << age << endl;
 }
 
-inline Person::Person(const string& name, const int& age)
+inline Human::Human(const string& name, const int& age)
 {
 	try 
 	{
@@ -54,12 +54,12 @@ inline Person::Person(const string& name, const int& age)
 	catch (...)
 	{
 		cout << "Partial handling error in ctor\n";
-		this->~Person();
+		this->~Human();
 		throw; // перевикинули (rethrow) виняток такого ж типу як прилетів, у зовнішній світ, буде шукатися більш зовнішній catch
 	}
 }
 
-inline Person::~Person()
+inline Human::~Human()
 {
 	cout << "~~~~~~~~ Dtor for Person~~~~" << name << "\n";
 }

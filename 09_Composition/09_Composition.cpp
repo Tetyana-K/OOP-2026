@@ -13,6 +13,10 @@ int main()
 	house.print();*/
 
 	House house2("Rivne, Garna Street", 5, 6);
+
+	house2.SetRoomName(0, "Living room");
+	house2.SetRoomSize(0, 5, 6);
+	house2.SetRoomName(1, "Bed room");
 	house2.print();
 }
 
