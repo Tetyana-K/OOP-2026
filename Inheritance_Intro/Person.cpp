@@ -22,6 +22,11 @@ void Human::learn() const
 	cout << "Person " << name << "(" << age << ")" << " is learning\n";
 
 }
+void Human::learn(int hours) const
+{
+	cout << "Person " << name << "(" << age << ")" << " is learning " << hours <<
+		"hours\n";
+}
 Human :: ~Human()
 {
 	cout << "~~~~~~ Destructor for Person " << name << endl;

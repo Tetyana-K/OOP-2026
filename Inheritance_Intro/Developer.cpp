@@ -17,16 +17,17 @@ Developer::Developer(const string& name, int age, const string& companyName)
 Developer::~Developer()
 {
 	cout << "~~~~~~ Destructor for Developer " << getName() << endl;
-
+	// деструктор похідного типу неявно викличе д-р базового типу
 }
 
 void Developer::learn() const
 {
+	//Human::learn(); // якщо потрібно, можемо викликати цей метод з базового класу
 	cout << "Developer " << getName() << " (" << age << ") from company " << companyName << " is learning\n";
-
 }
 
 void Developer::coding() const
 {
-	cout << "Developer " << getName() << " (" << age << ") from company " << companyName << " is coding\n";
+	//learn();
+	cout << "Developer " << /*name <<*/ getName() << " (" << age << ") from company " << companyName << " is coding\n";
 }

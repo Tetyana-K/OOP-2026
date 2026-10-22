@@ -35,11 +35,15 @@ public:
         return 0.0;
     }
 
+   /* virtual double length() const
+    {
+        return 0.0;
+    }*/
     virtual void display() const 
     {
         std::cout << "This is a shape." << std::endl;
     }
-   virtual ~Shape() // virtual !!!!!!!
+  virtual ~Shape() // virtual !!!!!!! у класі з вірт. методами рекомендовано деструткор позначити як віртуальний
     {
         std::cout << "\t\tDestructor ~Shape()\n";
     }
@@ -70,12 +74,10 @@ public:
     ~Circle()
     {
         std::cout << "\t\tDestructor ~Circle() with radius " << radius << "\n";
-        
-
     }
 };
 
-// Похідний класRectangle
+// Похідний клас Rectangle
 class Rectangle : public Shape 
 {
 private:
@@ -99,30 +101,32 @@ public:
     ~Rectangle()
     {
         std::cout << "\t\tDestructor ~Rectangle() with sides " << width << ", " << height << "\n";
-
     }
 };
 
-void demo(Shape& shape)
+void demo(Shape& shape) // функція прицймає посилання на Shape, сюди можна передати Shape, Circle, Rectangle 
 {
     shape.display();
 }
 int main() {
+
     Shape shape;
     Circle circle(1.0);
     
     Rectangle rectangle(4.0, 2.0);
+    
     demo(rectangle);
+    demo(circle);
 
-    /*Shape& sh = circle; 
-    sh.display();
-    std::cout << "Area sh = " << sh.area() << "\n\n";*/
+    //Shape& sh = circle; 
+    //sh.display();
+    //std::cout << "Area sh = " << sh.area() << "\n\n";
 
     //Shape* shR = &rectangle; //
     //shR->display();
     //std::cout << "Area sh2 = " << shR->area() << "\n";
    
-    //Shape* shapes[]{ &shape, &circle, &rectangle };
+    Shape* shapes[]{ &shape, &circle, &rectangle };
     
   /*  int menu;
     Shape* shape_;
@@ -137,16 +141,16 @@ int main() {
     //    std::cout << ++i << " shape\n";
     //    shape->display();
     //    std::cout << "Area: " << shape->area() << "\n\n";
-    //    //std::cout << "Area: " << shape->length() << "\n\n";
+    //    //std::cout << "Length: " << shape->length() << "\n\n";
     //}
     //std::cout << std::endl;
 
-    //Shape* shapes2[] { new Circle(2), new Rectangle(7,7) };
-    //for (const Shape* shape : shapes2) {
-    //    shape->display();
-    //    std::cout << "Area: " << shape->area() << "\n";
-    //    delete shape;
-    //}
+    Shape* shapes2[] { new Circle(2), new Rectangle(7,7)};
+    for (const Shape* shape : shapes2) {
+        shape->display();
+        std::cout << "Area: " << shape->area() << "\n";
+        delete shape;
+    }
     std::cout << "\n\n";
     return 0;
 }

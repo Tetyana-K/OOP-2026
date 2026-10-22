@@ -20,18 +20,22 @@ Transport::Transport(const string& brand, int year)
 	cout << "\t\tCtor for transport '" << brand << "'\n";
 }
 
-//void Transport::move() const
-//{
-//	cout << "Transport '" << brand << "' can move by ...????\n";
-//}
+void Transport::move() const
+{
+	cout << "Transport '" << brand << "' can move by ...????\n";
+}
 
 void Transport::info() const
 {
 	cout << "Transport brand '" << brand << "\tYear : " << year << endl;
 }
 
+void Transport::increaseSpeed() const
+{
+	cout << "Transport brand '" << brand << "\tYear : " << year << " is running faster" << endl;
+}
+
 Transport::~Transport()
 {
 	cout << "\t\tDtor for transport '" << brand << "'\n";
-
 }

@@ -11,7 +11,7 @@ public:
     Developer(const string& name = "Noname", int age = 18, const string& companyName = "DevCompany");
     ~Developer();
 
-    void learn() const; // цей метод ми вирішили трохи змінити, він перекриє (заховає 'hides')  відповідний метод із базового класу
+    /*virtual*/ void learn() const /*override*/; // цей метод ми вирішили трохи змінити, він перекриє (заховає 'hides')  відповідний метод із базового класу
     void coding() const;
 private:
     string companyName;

@@ -12,7 +12,8 @@ public:
 	}
 	void walk() const;
 	void eat() const;
-	void learn() const;
+	virtual void learn() const;
+	void learn(int hours) const;
 	~Human();
 private: // приватні поля та методи будуть видимі ТІЛЬКИ у межах цього класу, похідні типи НЕ бачать напряму приватної частини
 	string name;
