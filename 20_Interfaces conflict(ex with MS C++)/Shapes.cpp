@@ -1,4 +1,4 @@
-#define _USE_MATH_DEFINES
+﻿#define _USE_MATH_DEFINES
 #include <cmath>
 #include<iostream>
 #include "Shapes.h"
@@ -29,12 +29,17 @@ double Square::length() const
     return 4 * side;
 }
 
-void Square::IPrint::show() const
+//void Square::show() const //  публічна реалізація show() на ОБИДВА ІНТЕРФЕЙСИ
+//{
+//    std::cout << ">>>>>> Square with  side : " << side << std::endl;
+//}
+
+void Square::IPrint::show() const // реалізація методу show()  з IPrint
 {
     std::cout << "Square with  side : " << side << std::endl;
 }
 
-void Square::IDraw::show() const
+void Square::IDraw::show() const // реалізація методу show()  з IDraw
 {
     char  symbol = '*';
     for (size_t i = 0; i < side; i++)

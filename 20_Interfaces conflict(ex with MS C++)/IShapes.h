@@ -1,4 +1,5 @@
 ﻿#pragma once
+// визначили інтерфейси
 __interface IShape
 {
 	double area() const; // неявно абстрактний та відкритий

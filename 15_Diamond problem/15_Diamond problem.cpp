@@ -27,6 +27,7 @@ public:
 class Writer : public Human
 {
 protected:
+    // клас успадкував як protected  поле name  із класу Human
     Writer(const string& name)
         : Human(name)
     {
@@ -47,6 +48,7 @@ public:
 class Photographer: public Human
 {
 protected:
+    // клас успадкував як protected  поле name  із класу Human
     int experience;
 
 public:
@@ -66,9 +68,11 @@ public:
     }
 };
 
-// Клас Photojournalist, який успадковує властивості від Writer і Photographer(двічі успадкує поле name) 
-// міститиме дві версії поля name
-// У клас Клас Photojournalist зайшло ДВА екземпляри Human, Diamond Problem (проблема ромба, діаманта)
+// Клас Photojournalist, який успадковує властивості від Writer і Photographer(ДВІЧІ успадкує поле name) 
+// міститиме ДВІ версії поля name
+// У клас  Photojournalist зайшло ДВА екземпляри Human, Diamond Problem (проблема ромба, діаманта)
+//  Photojournalist містить у собі  Writer (Human), Photohraph (Human) ---> тобто у клас  Photojournalist двічі зайшов Human
+
 class Photojournalist : public Writer, public Photographer
 {
 public:

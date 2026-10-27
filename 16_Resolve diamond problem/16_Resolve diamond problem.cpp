@@ -14,7 +14,7 @@ class Human
 protected:
     string name;
 public:
-    Human(const string& name)
+    Human(const string& name = "Noname")
         : name(name)
     {
         cout << "\t\t***Ctor Human " << name << endl;
@@ -25,7 +25,7 @@ public:
     }
 };
 // Writer - похідний клас, успадковує поле name від Human
-class Writer : virtual public Human
+class Writer : virtual public Human // virtual успадкування від базового класу дасть мождивіть прибрати ДУБЛЮВАННЯ полів  та методів із класу Human 
 {
 protected:
     Writer(const string& name)
@@ -67,7 +67,8 @@ public:
     }
 };
 
-// Клас Photojournalist, який успадковує властивості від Writer і Photographer, тепер успадкував ОДИН екземпляр класу Human
+// Клас Photojournalist, який успадковує властивості від Writer і Photographer, 
+// тепер успадкував ОДИН екземпляр класу Human
 class Photojournalist : public Writer, public Photographer
 {
 public:
@@ -76,11 +77,11 @@ public:
     //потім к-ри Writer та Photographer(які НЕ  БУДУТЬ чіпати ініціалізацію поля name)
     
     Photojournalist(const string& name = "Noname", int experience = 1)
-        : Human(name), // явно викликаємо к-р  віртуального базового
-        Writer("1212121"),
-        Photographer("78787878", experience)
+        : Human(name), // явно викликаємо к-р  віртуального базового класу 
+        Writer("1212121"), // 121212 -- не візьметься до уваги, бо вірт наслідування, к-р класу Human ще раз викликатися не буде
+        Photographer("78787878", experience) // "78787878" -- не візьметься до уваги,
     {
-
+       // this->name = name;
         cout << "\t\tCtor Photojouranalist name : " << name << ", experience : " << experience << " year(s)" << endl;
     }
     void report()const
