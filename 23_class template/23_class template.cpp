@@ -7,15 +7,34 @@
 #include <string>
 using namespace std;
 #include "Array.h"
+
+template <typename T> //  шаблон функції
+void printArray(const T arr[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << "\t" << arr[i];
+	}
+	cout << endl;
+}
 int main()
 {
+	/*int arr[]{ 10, 20, 30 };
+	string words[]{ "Ukraine" , "Rivne", "Lviv", "Zdolbuniv"};
+
+	printArray(arr, size(arr));
+	printArray(words, size(words));*/
+
+
+
 	FArray<int, 5> a(2);
 	// 1) компілятор на основі шаблону класу  FArray створив конкретний клас  class FArrayInt5 { private: int array[5];   }
-	// 2) створення обєкта, працює конструктор з 1-м параметром
-	
+	// 2) створення обєкта a, працює конструктор з 1-м параметром (передаємо 2), тобто масив буде 2 2 2 2 2
+	a.print();
 	//a.array[0] = 111;
 	try {
 		a[0] = 111;// працює перевнтажений оператор індексування
+		a[2] = 333;// працює перевнтажений оператор індексування
 		a[5] = 888; // полетить виняток
 		//a.array[2] = 255;
 		a.print();
@@ -26,23 +45,24 @@ int main()
 		a.print();
 
 	}
-	for (size_t i = 0; i < 5; i++)
-	{
-		//cout <<"#" << i  << "\t"<< a.array[i] << endl;
-	}
+	cout << a << endl;
+	//for (size_t i = 0; i < 5; i++)
+	//{
+	//	//cout <<"#" << i  << "\t"<< a.array[i] << endl;
+	//}
 
 	FArray<string, 4> s("C++");// class FArrayS { private : string array[4];   }
-	//s.array[0] = "C++";
+	//s.array[0] = "C++"; // ok якщо поле array відкрите
 	//s.array[1] = "UML";
 	s[1] = "UML";
-	//s.array[2] = "Design patterns";
+	s[2] = "Design patterns";
 	//s.array[3] = "C#";
 	cout << endl;
 	s.print();
 
 	for (size_t i = 0; i < 4; i++)
 	{
-		//cout << "#" << i << "\t" << s.array[i] << endl;
+		cout << "#" << i << "\t" << s[i] << endl;
 	}
 	FArray <double> d(3.14); // class FArrayD{      double array[10];} 10 = значення параметра size  за замовчуванням
 	d.print();

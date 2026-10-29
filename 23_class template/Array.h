@@ -6,14 +6,18 @@ class FArray
 {
 public:
 	FArray() = default;
-	FArray(const T& value);
+	explicit FArray(const T& value);
 	void fill(const T& value); // заповнює певним значенням масив
 	void  print() const;
-	T array[size]{}; // поле - масив фіксованого розміру (size) з елементів Т
 	T& operator[] (int index);
-	bool isValidIndex(int index) const;
 private:
+	bool isValidIndex(int index) const;
+	
+	T array[size]{}; // поле - масив фіксованого розміру (size) з елементів Т
+	// {] -- заповнять масив дефолтними значеннями
 
+	// перевантажений оператор <<, зможемо виводити елементи масиву у потік  cout< obj
+	// функція дружня до класу, тобто бачить напряму приватну та захищену частину
 	template<typename U, unsigned len>
 	friend ostream& operator << (ostream& out, const FArray<U, len>& obj);
 };
@@ -23,7 +27,8 @@ inline FArray<T, size>::FArray(const T& value)
 {
 	fill(value); //заповнили масив однаковим значенням value
 }
-// кожен метод шаблонного класу =  шаблонна функція !
+
+ //кожен метод шаблонного класу =  шаблонна функція !
 template<typename U, unsigned size>
 inline void FArray<U, size>::fill(const U& value)
 {
@@ -46,9 +51,9 @@ inline void FArray<T, size>::print() const
 template<typename T, unsigned size>
 inline T& FArray<T, size>::operator[](int index)
 {
-	if (isValidIndex(index))
-		return array[index];
-	throw out_of_range("Wrong index " + to_string(index) + " in operator []");
+	if (isValidIndex(index)) // якщо індекс валідний
+		return array[index]; // повретаємо ПОСИЛАННЯ на відповідний елемент масиву (за цим індексом)
+	throw out_of_range("Wrong index " + to_string(index) + " in operator []"); //  кидаємо виняток
 }
 
 template<typename T, unsigned size>
@@ -64,6 +69,7 @@ inline ostream & operator<<(ostream& out, const FArray<U, len>& obj)
 	for (size_t i = 0; i < len; i++)
 	{
 		out << obj.array[i] << "\t";
+//		out << obj[i] << "\t";
 	}
 	out << endl;
 	return out;

@@ -1,10 +1,11 @@
 ﻿
 #include <iostream>
 using namespace std;
+
 double div(double a, double b)
 {
 	if (b == 0)
-		throw "Error division by  zero\n"; // кидається виняток типу const  char*  із  значенням "Error division by  zero\n"
+		throw  "Error division by zero\n"; // кидається виняток типу const  char*  із  значенням "Error division by  zero\n"
 	if (b > 1'000'000)
 		throw b; // кидається виняток типу double із значенням b 
 	if (b < -1'000'000)
@@ -13,17 +14,19 @@ double div(double a, double b)
 }
 //void terminate() // перекрити terminate()можна однойменної своєю функцією
 //{
-//	cout << "Error! My  terminate has worked\n";
+//	cout << "Error! My terminate() has worked\n";
 //	exit(EXIT_FAILURE);
 //}
+// 
 void my_terminate() // перекрити terminate()можна однойменної своєю функцією
 {
-	cout << "Error! My  terminate has worked\n";
+	cout << "*** Error!!! My terminate has worked\n";
 	exit(EXIT_FAILURE);
 }
 int main()
 {
-	//set_terminate(my_terminate);
+	set_terminate(my_terminate);
+	
 	double a, b;
 	//cout << "Enter two  numbers : ";
 	//cin >> a >> b;
@@ -31,16 +34,22 @@ int main()
 	//{
 	//	cout << "result  = " << div(a, b) << endl;
 	//}
-	//catch (int error)
+	//catch (int error) // -1234567
 	//{
-	//	cout << "Caught int error : " << error << endl;
+	//	cout << "Caught int error : " << error << endl; // 123
 	//}
-	//catch (const char * error)// обробник винятку
+	//catch (const char* error)// обробник винятку "Division by zero"
 	//{
-	//	cout << "Caught : " << error << endl;
+	//	cout << "Caught const char * : " << error << endl;
 	//}
+	//catch (...) // в усіх інших випадках помилка буде оброблятися тут
+	//{
+
+	//	cout << "Caught ..."  << endl;
+	//}
+	//return 0;
 	//cout << "Enter two  numbers : ";
-	
+
 	while (cout << "Enter two  numbers : ", cin >> a >> b) // працює доки ввід  коректний
 	{
 		try
@@ -55,7 +64,7 @@ int main()
 		{
 			cout << "Caught double : too big divisor " << errValue << endl;
 		}
-		catch(int errValue)
+		catch (int errValue)
 		{
 			cout << "Caught int : too small divisor " << errValue << endl;
 

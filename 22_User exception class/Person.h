@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <iostream>
 #include "PersonException.h"
-#include <algorithm>
+#include <algorithm> // для all_of()
 class Human
 {
 public:
@@ -45,6 +45,7 @@ inline void  Human::print()const
 }
 
 inline Human::Human(const string& name, const int& age)
+	//: name(name), age(age)
 {
 	try 
 	{
@@ -54,7 +55,7 @@ inline Human::Human(const string& name, const int& age)
 	catch (...)
 	{
 		cout << "Partial handling error in ctor\n";
-		this->~Human();
+		this->~Human(); // явно викликади деструктор, який "почистив ресурси" (зараз деструктор у нас демонстраційни)
 		throw; // перевикинули (rethrow) виняток такого ж типу як прилетів, у зовнішній світ, буде шукатися більш зовнішній catch
 	}
 }
